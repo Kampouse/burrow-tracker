@@ -13,10 +13,10 @@ interface MetricCardProps {
 
 export function MetricCard({ icon: Icon, label, value, color }: MetricCardProps) {
   return (
-    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-5 backdrop-blur-sm">
-      <div className="flex items-center gap-3 mb-4">
-        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${color}`}>
-          <Icon size={20} className="text-white" />
+    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 backdrop-blur-sm">
+      <div className="flex items-center gap-4 mb-5">
+        <div className={`w-11 h-11 rounded-full flex items-center justify-center ${color}`}>
+          <Icon size={22} className="text-white" />
         </div>
         <span className="text-white/50 text-xs font-medium">{label}</span>
       </div>

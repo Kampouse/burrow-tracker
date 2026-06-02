@@ -62,7 +62,7 @@ export default function App() {
           hasMultipleSnapshots={snapshots.length > 1}
         />
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-4 px-2">
           <MetricCard icon={Wallet} label="Supplied" value={latest ? usd(latest.supplied_usd) : '—'} color="bg-lime-500/15" />
           <MetricCard icon={Shield} label="Collateral" value={latest ? usd(latest.collateral_usd) : '—'} color="bg-blue-500/15" />
           <MetricCard icon={ArrowDownRight} label="Borrowed" value={latest ? usd(latest.borrowed_usd) : '—'} color="bg-red-500/15" />
