@@ -58,12 +58,15 @@ async function fetchFromKv(): Promise<Snapshot[]> {
 
 // ── Public API ─────────────────────────────────────────────────────────
 
-/** Fetch position history from FastNear KV (or mock data on localhost) */
+/** Fetch position history from FastNear KV (or mock data when no real data exists) */
 export async function fetchHistory(): Promise<Snapshot[]> {
-  if (location.hostname === 'localhost') {
-    await new Promise((r) => setTimeout(r, 400)) // simulate latency
+  const snapshots = await fetchFromKv()
+
+  // Fall back to mock data if KV is empty (no writer running yet)
+  if (snapshots.length === 0) {
+    await new Promise((r) => setTimeout(r, 400))
     return MOCK_SNAPSHOTS
   }
 
-  return fetchFromKv()
+  return snapshots
 }
